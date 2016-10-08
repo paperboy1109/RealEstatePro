@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,6 +43,143 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
         coreDataStack.saveContext()
+    }
+    
+    // MARK: - Import data from the homes.json file
+    
+    func checkDataStore() {
+        
+        let fetchRequest: NSFetchRequest<Home> = Home.fetchRequest()
+        
+        let managedObjectContext = coreDataStack.persistentContainer.viewContext
+        
+        do {
+            let homeTotal = try managedObjectContext.count(for: fetchRequest)
+            
+            if homeTotal == 0 {
+                loadSampleData()
+            }
+            
+        } catch {
+            fatalError("Failed to count the home records")
+        }
+    }
+    
+    func loadSampleData() {
+        
+        let managedObjectContext = coreDataStack.persistentContainer.viewContext
+        
+        let fileUrl = Bundle.main.url(forResource: "homes", withExtension: "json")
+        
+        let data = try? Data(contentsOf: fileUrl!)
+        
+        do {
+            
+            let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+            
+            let jsonArray = jsonResult?.value(forKey: "home") as! NSArray
+            
+            for item in jsonArray {
+                
+                let homeData = item as! [String: AnyObject]
+                
+                /* Parse the data */
+                
+                    // Defensive coding
+                
+                guard let city = homeData["city"] else {
+                    return
+                }
+                
+                guard let price = homeData["price"] else {
+                    return
+                }
+                
+                guard let bed = homeData["bed"] else {
+                    return
+                }
+                
+                guard let bath = homeData["bath"] else {
+                    return
+                }
+                
+                guard let sqft = homeData["sqft"] else {
+                    return
+                }
+                
+                    // The home image
+                var homeImage: UIImage?
+                if let currentImage = homeData["image"] {
+                    let imageName = currentImage as? String
+                    homeImage = UIImage(named: imageName!)
+                }
+                
+                    // Condo or single family?
+                guard let homeCategory = homeData["category"] else {
+                    return
+                }
+                
+                let homeType = (homeCategory as! NSDictionary)["homeType"] as? String
+                
+                    // Is the home on the market?
+                guard let homeStatus = homeData["homeStatus"] else {
+                    return
+                }
+                
+                let isForSale = (homeStatus as! NSDictionary)["isForSale"] as? Bool
+                
+                /* Use the data to populate entities */
+                
+                let home = homeType?.caseInsensitiveCompare("condo") == .orderedSame ? Condo(context: managedObjectContext) : SingleFamily(context: managedObjectContext)
+                
+                home.city = city as? String
+                home.price = price as! Double
+                home.bed = bed.int16Value
+                home.bath = bath.int16Value
+                home.sqft = sqft.int16Value
+                home.isForSale = isForSale!
+                
+                home.image = NSData.init(data: UIImageJPEGRepresentation(homeImage!, 1.0)!)
+                
+                /* Condos vs. Single Family homes have different properties: unitsPerBuilding and lotSize, respectively */
+                if let unitsPerBuilding = homeData["unitsPerBuilding"] {
+                    (home as! Condo).unitsPerBuilding = unitsPerBuilding.int16Value
+                }
+                
+                if let lotSize = homeData["lotSize"] {
+                    (home as! SingleFamily).lotSize = lotSize.int16Value
+                }
+                
+                if let saleHistoryCollection = homeData["SaleHistory"] {
+                    
+                    let saleHistoryData = home.saleHistory?.mutableCopy() as! NSMutableSet
+                    
+                    for item in saleHistoryCollection as! NSArray {
+                        
+                        let saleData = item as! [String: AnyObject]
+                        
+                        let saleHistory = SaleHistory(context: managedObjectContext)
+                        saleHistory.soldPrice = saleData["soldPrice"] as! Double
+                        
+                        let soldDateString = saleData["soldDate"] as! String
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        let soldDate = dateFormatter.date(from: soldDateString)
+                        saleHistory.soldDate = soldDate
+                        
+                        saleHistoryData.add(saleHistory)
+                        
+                        home.addToSaleHistory(saleHistoryData)
+                    }
+                }
+            }
+            
+            coreDataStack.saveContext()
+            
+        } catch {
+            fatalError("Failed to load sample data")
+        }
+        
     }
 
 
