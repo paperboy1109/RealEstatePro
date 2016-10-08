@@ -35,6 +35,16 @@
 		4EB586481DA9844000BC824D /* 965000.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EB586321DA9844000BC824D /* 965000.jpg */; };
 		4EB586491DA9844000BC824D /* 975000.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EB586331DA9844000BC824D /* 975000.jpg */; };
 		4EB5864B1DA9846100BC824D /* homes.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EB5864A1DA9846100BC824D /* homes.json */; };
+		4EB5864E1DA9851700BC824D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB5864D1DA9851700BC824D /* CoreDataStack.swift */; };
+		4EB586511DA9864100BC824D /* RealEstate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EB5864F1DA9864100BC824D /* RealEstate.xcdatamodeld */; };
+		4EB5865B1DA988E700BC824D /* SaleHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586531DA988E700BC824D /* SaleHistory+CoreDataClass.swift */; };
+		4EB5865C1DA988E700BC824D /* SaleHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586541DA988E700BC824D /* SaleHistory+CoreDataProperties.swift */; };
+		4EB5865D1DA988E700BC824D /* Home+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586551DA988E700BC824D /* Home+CoreDataClass.swift */; };
+		4EB5865E1DA988E700BC824D /* Home+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586561DA988E700BC824D /* Home+CoreDataProperties.swift */; };
+		4EB5865F1DA988E700BC824D /* Condo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586571DA988E700BC824D /* Condo+CoreDataClass.swift */; };
+		4EB586601DA988E700BC824D /* Condo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586581DA988E700BC824D /* Condo+CoreDataProperties.swift */; };
+		4EB586611DA988E700BC824D /* SingleFamily+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586591DA988E700BC824D /* SingleFamily+CoreDataClass.swift */; };
+		4EB586621DA988E700BC824D /* SingleFamily+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +78,16 @@
 		4EB586321DA9844000BC824D /* 965000.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 965000.jpg; sourceTree = "<group>"; };
 		4EB586331DA9844000BC824D /* 975000.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 975000.jpg; sourceTree = "<group>"; };
 		4EB5864A1DA9846100BC824D /* homes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homes.json; sourceTree = "<group>"; };
+		4EB5864D1DA9851700BC824D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4EB586501DA9864100BC824D /* RealEstate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RealEstate.xcdatamodel; sourceTree = "<group>"; };
+		4EB586531DA988E700BC824D /* SaleHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SaleHistory+CoreDataClass.swift"; path = "../SaleHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4EB586541DA988E700BC824D /* SaleHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SaleHistory+CoreDataProperties.swift"; path = "../SaleHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4EB586551DA988E700BC824D /* Home+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Home+CoreDataClass.swift"; path = "../Home+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4EB586561DA988E700BC824D /* Home+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Home+CoreDataProperties.swift"; path = "../Home+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4EB586571DA988E700BC824D /* Condo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Condo+CoreDataClass.swift"; path = "../Condo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4EB586581DA988E700BC824D /* Condo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Condo+CoreDataProperties.swift"; path = "../Condo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4EB586591DA988E700BC824D /* SingleFamily+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SingleFamily+CoreDataClass.swift"; path = "../SingleFamily+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SingleFamily+CoreDataProperties.swift"; path = "../SingleFamily+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +120,15 @@
 		4EB586081DA983FF00BC824D /* Real Estate Pro */ = {
 			isa = PBXGroup;
 			children = (
+				4EB586531DA988E700BC824D /* SaleHistory+CoreDataClass.swift */,
+				4EB586541DA988E700BC824D /* SaleHistory+CoreDataProperties.swift */,
+				4EB586551DA988E700BC824D /* Home+CoreDataClass.swift */,
+				4EB586561DA988E700BC824D /* Home+CoreDataProperties.swift */,
+				4EB586571DA988E700BC824D /* Condo+CoreDataClass.swift */,
+				4EB586581DA988E700BC824D /* Condo+CoreDataProperties.swift */,
+				4EB586591DA988E700BC824D /* SingleFamily+CoreDataClass.swift */,
+				4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */,
+				4EB5864C1DA9850300BC824D /* Model */,
 				4EB5861C1DA9842500BC824D /* Assets */,
 				4EB5861B1DA9841E00BC824D /* Controller */,
 				4EB586091DA983FF00BC824D /* AppDelegate.swift */,
@@ -155,6 +184,23 @@
 				4EB586331DA9844000BC824D /* 975000.jpg */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		4EB5864C1DA9850300BC824D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EB586521DA988C800BC824D /* Entities */,
+				4EB5864D1DA9851700BC824D /* CoreDataStack.swift */,
+				4EB5864F1DA9864100BC824D /* RealEstate.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4EB586521DA988C800BC824D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +299,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB5864E1DA9851700BC824D /* CoreDataStack.swift in Sources */,
+				4EB586511DA9864100BC824D /* RealEstate.xcdatamodeld in Sources */,
 				4EB5860C1DA983FF00BC824D /* ViewController.swift in Sources */,
+				4EB586621DA988E700BC824D /* SingleFamily+CoreDataProperties.swift in Sources */,
+				4EB5865B1DA988E700BC824D /* SaleHistory+CoreDataClass.swift in Sources */,
+				4EB586611DA988E700BC824D /* SingleFamily+CoreDataClass.swift in Sources */,
+				4EB5865E1DA988E700BC824D /* Home+CoreDataProperties.swift in Sources */,
+				4EB586601DA988E700BC824D /* Condo+CoreDataProperties.swift in Sources */,
 				4EB5860A1DA983FF00BC824D /* AppDelegate.swift in Sources */,
+				4EB5865C1DA988E700BC824D /* SaleHistory+CoreDataProperties.swift in Sources */,
+				4EB5865D1DA988E700BC824D /* Home+CoreDataClass.swift in Sources */,
+				4EB5865F1DA988E700BC824D /* Condo+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +474,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4EB5864F1DA9864100BC824D /* RealEstate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4EB586501DA9864100BC824D /* RealEstate.xcdatamodel */,
+			);
+			currentVersion = 4EB586501DA9864100BC824D /* RealEstate.xcdatamodel */;
+			path = RealEstate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4EB585FE1DA983FF00BC824D /* Project object */;
 }
