@@ -120,14 +120,6 @@
 		4EB586081DA983FF00BC824D /* Real Estate Pro */ = {
 			isa = PBXGroup;
 			children = (
-				4EB586531DA988E700BC824D /* SaleHistory+CoreDataClass.swift */,
-				4EB586541DA988E700BC824D /* SaleHistory+CoreDataProperties.swift */,
-				4EB586551DA988E700BC824D /* Home+CoreDataClass.swift */,
-				4EB586561DA988E700BC824D /* Home+CoreDataProperties.swift */,
-				4EB586571DA988E700BC824D /* Condo+CoreDataClass.swift */,
-				4EB586581DA988E700BC824D /* Condo+CoreDataProperties.swift */,
-				4EB586591DA988E700BC824D /* SingleFamily+CoreDataClass.swift */,
-				4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */,
 				4EB5864C1DA9850300BC824D /* Model */,
 				4EB5861C1DA9842500BC824D /* Assets */,
 				4EB5861B1DA9841E00BC824D /* Controller */,
@@ -199,6 +191,14 @@
 		4EB586521DA988C800BC824D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				4EB586531DA988E700BC824D /* SaleHistory+CoreDataClass.swift */,
+				4EB586541DA988E700BC824D /* SaleHistory+CoreDataProperties.swift */,
+				4EB586551DA988E700BC824D /* Home+CoreDataClass.swift */,
+				4EB586561DA988E700BC824D /* Home+CoreDataProperties.swift */,
+				4EB586571DA988E700BC824D /* Condo+CoreDataClass.swift */,
+				4EB586581DA988E700BC824D /* Condo+CoreDataProperties.swift */,
+				4EB586591DA988E700BC824D /* SingleFamily+CoreDataClass.swift */,
+				4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -472,6 +472,7 @@
 				4EB5861A1DA983FF00BC824D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

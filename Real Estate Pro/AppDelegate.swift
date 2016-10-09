@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // For debugging
+        // deleteAllRecords()
+        checkDataStore()
+        
         return true
     }
 
@@ -56,9 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let homeTotal = try managedObjectContext.count(for: fetchRequest)
             
+            print("\n\nHere is the total number of homes in the database at app launch: \(homeTotal)")
+            
             if homeTotal == 0 {
                 loadSampleData()
             }
+            
             
         } catch {
             fatalError("Failed to count the home records")
@@ -75,9 +83,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             
-            let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+            let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
             
-            let jsonArray = jsonResult?.value(forKey: "home") as! NSArray
+            let jsonArray = jsonResult.value(forKey: "home") as! NSArray
             
             for item in jsonArray {
                 
@@ -122,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let homeType = (homeCategory as! NSDictionary)["homeType"] as? String
                 
                     // Is the home on the market?
-                guard let homeStatus = homeData["homeStatus"] else {
+                guard let homeStatus = homeData["status"] else {
                     return
                 }
                 
@@ -150,7 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     (home as! SingleFamily).lotSize = lotSize.int16Value
                 }
                 
-                if let saleHistoryCollection = homeData["SaleHistory"] {
+                if let saleHistoryCollection = homeData["saleHistory"] {
                     
                     let saleHistoryData = home.saleHistory?.mutableCopy() as! NSMutableSet
                     
@@ -180,6 +188,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Failed to load sample data")
         }
         
+    }
+    
+    func deleteAllRecords() {
+        
+        let managedObjectContext = coreDataStack.persistentContainer.viewContext
+        
+        let fetchRequestForHome: NSFetchRequest<Home> = Home.fetchRequest()
+        
+        let fetchRequestForSaleHistory: NSFetchRequest<SaleHistory> = SaleHistory.fetchRequest()
+        
+        var fetchRequestForDeletion: NSBatchDeleteRequest
+        var deleteResults: NSPersistentStoreResult
+        
+        do {
+            
+            fetchRequestForDeletion = NSBatchDeleteRequest(fetchRequest: fetchRequestForHome as! NSFetchRequest<NSFetchRequestResult>)
+            deleteResults = try managedObjectContext.execute(fetchRequestForDeletion)
+            
+            fetchRequestForDeletion = NSBatchDeleteRequest(fetchRequest: fetchRequestForSaleHistory as! NSFetchRequest<NSFetchRequestResult>)
+            deleteResults = try managedObjectContext.execute(fetchRequestForDeletion)
+            
+        } catch {
+            fatalError("Failed to remove the existing records")
+        }
     }
 
 
