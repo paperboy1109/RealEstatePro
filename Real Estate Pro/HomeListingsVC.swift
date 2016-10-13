@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeListingsVC: UIViewController {
     
@@ -14,20 +15,43 @@ class HomeListingsVC: UIViewController {
     
     let cellIdentifier = "HomeListCell"
     
+    weak var mangedObjectContext: NSManagedObjectContext! {
+        // The managed object context will be set by the app delegate at launch
+        didSet {
+            return home = Home(context: mangedObjectContext)
+        }
+    }
+    lazy var homes = [Home]()
+    var home: Home? = nil
+    var isForSale: Bool = true
+    
     // MARK: - Outlets
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var homeListTableView: UITableView!
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        loadData()
+        
+        print("\n\n The number of homes is : \(homes.count))")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Private functions
+    
+    private func loadData() {
+        
+        homes = home!.getHomesBySaleStatus(isForSale: isForSale, managedObjectContext: mangedObjectContext)
+        
+        homeListTableView.reloadData()
     }
     
 
@@ -53,12 +77,17 @@ extension HomeListingsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return homes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeListingCell
+        
+        let currentHome = homes[indexPath.row]
+        
+        cell.categoryLabel.text = currentHome.homeType
+        cell.cityLabel.text = currentHome.city
         
         return cell
     }

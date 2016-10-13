@@ -11,5 +11,22 @@ import CoreData
 
 
 public class Home: NSManagedObject {
+    
+    func getHomesBySaleStatus(isForSale: Bool, managedObjectContext: NSManagedObjectContext) -> [Home] {
+        
+        let fetchRequest: NSFetchRequest<Home> = Home.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "isForSale = %@", isForSale as CVarArg)
+        
+        do {
+            
+            let homesCollection = try managedObjectContext.fetch(fetchRequest)
+            return homesCollection
+            
+        } catch {
+            fatalError("Failed to fetch the list of homes")
+        }
+        
+    }
 
 }

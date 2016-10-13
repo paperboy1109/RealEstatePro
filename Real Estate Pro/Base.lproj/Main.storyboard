@@ -46,7 +46,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-kK-JVx">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="65" id="KEo-QN-xLG" customClass="HomeListTableViewCell" customModule="Real_Estate_Pro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HomeListCell" rowHeight="65" id="KEo-QN-xLG" customClass="HomeListingCell" customModule="Real_Estate_Pro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KEo-QN-xLG" id="9Iq-WK-GRG">
@@ -156,8 +156,8 @@
                                         <connections>
                                             <outlet property="bathLabel" destination="dFh-DF-uzO" id="KUL-P8-BKn"/>
                                             <outlet property="bedLabel" destination="Ofc-E2-iJ4" id="4Uz-P9-bvu"/>
-                                            <outlet property="categoryLabel" destination="xsi-jS-gfS" id="4dq-jG-k9t"/>
-                                            <outlet property="cityLabel" destination="3Vm-Nw-Lfa" id="Lrg-tv-724"/>
+                                            <outlet property="categoryLabel" destination="xsi-jS-gfS" id="FlT-lg-a34"/>
+                                            <outlet property="cityLabel" destination="3Vm-Nw-Lfa" id="hrQ-T7-bzO"/>
                                             <outlet property="homeImageView" destination="2pK-Uv-NRY" id="sal-RM-ZpH"/>
                                             <outlet property="priceLabel" destination="HYj-eH-z3C" id="5OL-PT-daD"/>
                                             <outlet property="sqftLabel" destination="fll-ZW-ghe" id="YoX-9e-UyP"/>

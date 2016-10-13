@@ -46,6 +46,7 @@
 		4EB586611DA988E700BC824D /* SingleFamily+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB586591DA988E700BC824D /* SingleFamily+CoreDataClass.swift */; };
 		4EB586621DA988E700BC824D /* SingleFamily+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */; };
 		4EC6C91A1DAF491E002707DD /* HomeListingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6C9191DAF491E002707DD /* HomeListingsVC.swift */; };
+		4EC6C91D1DAF4CF5002707DD /* HomeListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6C91C1DAF4CF5002707DD /* HomeListingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		4EB586591DA988E700BC824D /* SingleFamily+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SingleFamily+CoreDataClass.swift"; path = "../SingleFamily+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SingleFamily+CoreDataProperties.swift"; path = "../SingleFamily+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4EC6C9191DAF491E002707DD /* HomeListingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListingsVC.swift; sourceTree = "<group>"; };
+		4EC6C91C1DAF4CF5002707DD /* HomeListingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		4EB586081DA983FF00BC824D /* Real Estate Pro */ = {
 			isa = PBXGroup;
 			children = (
+				4EC6C91B1DAF4CD8002707DD /* View */,
 				4EB5864C1DA9850300BC824D /* Model */,
 				4EB5861C1DA9842500BC824D /* Assets */,
 				4EB5861B1DA9841E00BC824D /* Controller */,
@@ -204,6 +207,14 @@
 				4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		4EC6C91B1DAF4CD8002707DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6C91C1DAF4CF5002707DD /* HomeListingCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				4EB5864E1DA9851700BC824D /* CoreDataStack.swift in Sources */,
 				4EB586511DA9864100BC824D /* RealEstate.xcdatamodeld in Sources */,
 				4EB5860C1DA983FF00BC824D /* ViewController.swift in Sources */,
+				4EC6C91D1DAF4CF5002707DD /* HomeListingCell.swift in Sources */,
 				4EB586621DA988E700BC824D /* SingleFamily+CoreDataProperties.swift in Sources */,
 				4EB5865B1DA988E700BC824D /* SaleHistory+CoreDataClass.swift in Sources */,
 				4EB586611DA988E700BC824D /* SingleFamily+CoreDataClass.swift in Sources */,
