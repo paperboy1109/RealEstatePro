@@ -28,7 +28,7 @@
         <!--Home List-->
         <scene sceneID="YzA-wE-G1R">
             <objects>
-                <viewController id="NkK-GA-HYk" sceneMemberID="viewController">
+                <viewController id="NkK-GA-HYk" customClass="HomeListingsVC" customModule="Real_Estate_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kN2-ZP-KrD"/>
                         <viewControllerLayoutGuide type="bottom" id="6dX-Qp-BdH"/>
@@ -42,14 +42,11 @@
                                     <segment title="For Sale"/>
                                     <segment title="Sold"/>
                                 </segments>
-                                <connections>
-                                    <action selector="segmentedAction:" destination="NkK-GA-HYk" eventType="valueChanged" id="umq-KY-dBZ"/>
-                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-kK-JVx">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="65" id="KEo-QN-xLG" customClass="HomeListTableViewCell" customModule="Home_Report" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="65" id="KEo-QN-xLG" customClass="HomeListTableViewCell" customModule="Real_Estate_Pro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KEo-QN-xLG" id="9Iq-WK-GRG">
@@ -167,10 +164,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="NkK-GA-HYk" id="bUN-3U-KU5"/>
-                                    <outlet property="delegate" destination="NkK-GA-HYk" id="51g-ts-hPW"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,8 +180,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Filter" id="6WT-PU-E4S"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="segmentedControl" destination="P86-WN-3bK" id="gkD-ce-CyT"/>
-                        <outlet property="tableView" destination="lqe-kK-JVx" id="bfl-fV-gXq"/>
+                        <outlet property="homeListTableView" destination="lqe-kK-JVx" id="aUK-lx-q24"/>
+                        <outlet property="segmentedControl" destination="P86-WN-3bK" id="q1K-Mb-jye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z7-aP-rqx" sceneMemberID="firstResponder"/>
@@ -409,7 +402,7 @@
         <!--Sale History-->
         <scene sceneID="cVj-vq-U3K">
             <objects>
-                <viewController id="fp7-2T-Gnq" customClass="SaleHistoryViewController" customModule="Home_Report" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fp7-2T-Gnq" customClass="SaleHistoryViewController" customModule="Real_Estate_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xGA-xv-g2L"/>
                         <viewControllerLayoutGuide type="bottom" id="lGI-ox-Tnv"/>
@@ -421,7 +414,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-G6-9AW">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" textLabel="Wv9-bH-52Z" detailTextLabel="kcs-x5-hKh" rowHeight="15" style="IBUITableViewCellStyleValue1" id="09M-ec-y4k" customClass="SaleHistoryTableViewCell" customModule="Home_Report" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" textLabel="Wv9-bH-52Z" detailTextLabel="kcs-x5-hKh" rowHeight="15" style="IBUITableViewCellStyleValue1" id="09M-ec-y4k" customClass="SaleHistoryTableViewCell" customModule="Real_Estate_Pro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="335" height="15"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="09M-ec-y4k" id="km6-F5-eVe">
@@ -483,7 +476,7 @@
         <!--Filter Table View Controller-->
         <scene sceneID="7U0-Ao-4kV">
             <objects>
-                <tableViewController id="i6Q-hO-LmP" customClass="FilterTableViewController" customModule="Home_Report" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="i6Q-hO-LmP" customClass="FilterTableViewController" customModule="Real_Estate_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gpc-ej-uxZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
