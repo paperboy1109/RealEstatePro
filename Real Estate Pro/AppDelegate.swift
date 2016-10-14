@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // For debugging
-        // deleteAllRecords()
-        checkDataStore()
+        //deleteAllRecords()
+        //checkDataStore()
         
         return true
     }
@@ -73,8 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if homeTotal == 0 {
                 loadSampleData()
-            }
+            }            
             
+            loadSampleData()
             
         } catch {
             fatalError("Failed to count the home records")
@@ -149,6 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let home = homeType?.caseInsensitiveCompare("condo") == .orderedSame ? Condo(context: managedObjectContext) : SingleFamily(context: managedObjectContext)
                 
                 home.city = city as? String
+                home.homeType = homeType
                 home.price = price as! Double
                 home.bed = bed.int16Value
                 home.bath = bath.int16Value

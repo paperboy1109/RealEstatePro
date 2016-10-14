@@ -50,7 +50,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KEo-QN-xLG" id="9Iq-WK-GRG">
-                                            <frame key="frameInset" width="342" height="64"/>
+                                            <frame key="frameInset" width="342" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pK-Uv-NRY">
@@ -154,16 +154,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="bathLabel" destination="dFh-DF-uzO" id="KUL-P8-BKn"/>
-                                            <outlet property="bedLabel" destination="Ofc-E2-iJ4" id="4Uz-P9-bvu"/>
-                                            <outlet property="categoryLabel" destination="xsi-jS-gfS" id="FlT-lg-a34"/>
-                                            <outlet property="cityLabel" destination="3Vm-Nw-Lfa" id="hrQ-T7-bzO"/>
-                                            <outlet property="homeImageView" destination="2pK-Uv-NRY" id="sal-RM-ZpH"/>
-                                            <outlet property="priceLabel" destination="HYj-eH-z3C" id="5OL-PT-daD"/>
-                                            <outlet property="sqftLabel" destination="fll-ZW-ghe" id="YoX-9e-UyP"/>
+                                            <outlet property="bedValueLabel" destination="Ofc-E2-iJ4" id="DiE-Hl-SIu"/>
+                                            <outlet property="categoryLabel" destination="xsi-jS-gfS" id="hhv-IQ-bQ4"/>
+                                            <outlet property="cityLabel" destination="3Vm-Nw-Lfa" id="XPR-Sn-8qo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NkK-GA-HYk" id="qef-vt-3Uk"/>
+                                    <outlet property="delegate" destination="NkK-GA-HYk" id="EfA-W6-RlN"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -540,7 +540,7 @@
                             <tableViewSection headerTitle="FILTER BY HOME TYPE" id="2IK-KD-xCW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" textLabel="rLg-MN-iu6" style="IBUITableViewCellStyleDefault" id="IFp-XE-JUl">
-                                        <rect key="frame" x="0.0" y="245" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="244" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IFp-XE-JUl" id="Iyy-6D-nwB">
                                             <frame key="frameInset" width="375" height="43"/>
@@ -557,7 +557,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" textLabel="Row-AV-8Do" style="IBUITableViewCellStyleDefault" id="M1d-ap-eba">
-                                        <rect key="frame" x="0.0" y="289" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="288" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M1d-ap-eba" id="O5n-YP-50J">
                                             <frame key="frameInset" width="375" height="43"/>
@@ -574,7 +574,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="W9D-sp-4q3">
-                                        <rect key="frame" x="0.0" y="333" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="332" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W9D-sp-4q3" id="n0i-26-kQy">
                                             <frame key="frameInset" width="375" height="43"/>

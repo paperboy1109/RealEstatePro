@@ -15,6 +15,7 @@ class HomeListingCell: UITableViewCell {
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var categoryLabel: UILabel!
     
+    @IBOutlet var bedValueLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +26,15 @@ class HomeListingCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(home: Home) {
+        
+        cityLabel.text = home.city
+        categoryLabel.text = home.homeType
+        
+        bedValueLabel.text = String(home.bed)
+        
     }
 
 }

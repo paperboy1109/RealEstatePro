@@ -85,9 +85,10 @@ extension HomeListingsVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeListingCell
         
         let currentHome = homes[indexPath.row]
-        
-        cell.categoryLabel.text = currentHome.homeType
-        cell.cityLabel.text = currentHome.city
+
+//        cell.categoryLabel.text = currentHome.homeType
+//        cell.cityLabel.text = currentHome.city
+        cell.configureCell(home: currentHome)
         
         return cell
     }
