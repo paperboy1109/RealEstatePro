@@ -18,10 +18,15 @@ class HomeListingCell: UITableViewCell {
     @IBOutlet var bedValueLabel: UILabel!
     @IBOutlet var priceValueLabel: UILabel!
     
+    @IBOutlet var cellImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        cellImageView.layer.borderWidth = 1
+        cellImageView.layer.cornerRadius = 5
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,6 +43,8 @@ class HomeListingCell: UITableViewCell {
         bedValueLabel.text = String(home.bed)
         priceValueLabel.text = home.price.currencyStringFormatter
         
+        let homeImage = UIImage(data: home.image as! Data)
+        cellImageView.image = homeImage
     }
 
 }
