@@ -54,6 +54,19 @@ class HomeListingsVC: UIViewController {
         homeListTableView.reloadData()
     }
     
+    // MARK: - Actions
+    
+    @IBAction func segmentedControlValueChanged(_ sender: AnyObject) {
+        
+        let currentSegmentedControlValue = sender.titleForSegment(at: sender.selectedSegmentIndex)
+        
+        /* Update the isForSale property accordingly */
+        isForSale = currentSegmentedControlValue == "For Sale" ? true : false
+        
+        /* Update the data */
+        loadData()
+    }
+    
 
     /*
     // MARK: - Navigation

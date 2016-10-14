@@ -19,17 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // For debugging
+        //deleteAllRecords()
+        checkDataStore()
+        
         let managedObjectContext = coreDataStack.persistentContainer.viewContext
         
         let tabBarController = self.window?.rootViewController as! UITabBarController
         let homeListingsNavController = tabBarController.viewControllers?[0] as! UINavigationController
         let homeListingsVC = homeListingsNavController.topViewController as! HomeListingsVC
         homeListingsVC.mangedObjectContext = managedObjectContext
-        
-        
-        // For debugging
-        //deleteAllRecords()
-        //checkDataStore()
         
         return true
     }
@@ -75,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 loadSampleData()
             }            
             
-            loadSampleData()
+            //loadSampleData()
             
         } catch {
             fatalError("Failed to count the home records")
