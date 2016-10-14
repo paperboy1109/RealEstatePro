@@ -157,6 +157,7 @@
                                             <outlet property="bedValueLabel" destination="Ofc-E2-iJ4" id="DiE-Hl-SIu"/>
                                             <outlet property="categoryLabel" destination="xsi-jS-gfS" id="hhv-IQ-bQ4"/>
                                             <outlet property="cityLabel" destination="3Vm-Nw-Lfa" id="XPR-Sn-8qo"/>
+                                            <outlet property="priceValueLabel" destination="HYj-eH-z3C" id="QIe-Qp-sbN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

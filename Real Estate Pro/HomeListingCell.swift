@@ -16,6 +16,8 @@ class HomeListingCell: UITableViewCell {
     @IBOutlet var categoryLabel: UILabel!
     
     @IBOutlet var bedValueLabel: UILabel!
+    @IBOutlet var priceValueLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +36,7 @@ class HomeListingCell: UITableViewCell {
         categoryLabel.text = home.homeType
         
         bedValueLabel.text = String(home.bed)
+        priceValueLabel.text = home.price.currencyStringFormatter
         
     }
 
