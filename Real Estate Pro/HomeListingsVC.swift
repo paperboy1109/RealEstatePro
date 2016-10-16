@@ -15,15 +15,16 @@ class HomeListingsVC: UIViewController {
     
     let cellIdentifier = "HomeListCell"
     
-    weak var mangedObjectContext: NSManagedObjectContext! {
+    weak var managedObjectContext: NSManagedObjectContext! {
         // The managed object context will be set by the app delegate at launch
         didSet {
-            return home = Home(context: mangedObjectContext)
+            return home = Home(context: managedObjectContext)
         }
     }
     lazy var homes = [Home]()
     var home: Home? = nil
     var isForSale: Bool = true
+    var selectedHome: Home?
     
     // MARK: - Outlets
     
@@ -49,7 +50,7 @@ class HomeListingsVC: UIViewController {
     
     private func loadData() {
         
-        homes = home!.getHomesBySaleStatus(isForSale: isForSale, managedObjectContext: mangedObjectContext)
+        homes = home!.getHomesBySaleStatus(isForSale: isForSale, managedObjectContext: managedObjectContext)
         
         homeListTableView.reloadData()
     }
@@ -67,16 +68,27 @@ class HomeListingsVC: UIViewController {
         loadData()
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "ToSaleHistory" {
+            
+            let selectedIndexPath = homeListTableView.indexPathForSelectedRow
+            selectedHome = homes[selectedIndexPath!.row]
+            
+            let destinationVC = segue.destination as! SaleHistoryVC
+            
+            
+            destinationVC.home = selectedHome
+            destinationVC.managedObjectContext = managedObjectContext
+            
+        }
+
+    } 
 
 }
 
@@ -99,13 +111,14 @@ extension HomeListingsVC: UITableViewDataSource, UITableViewDelegate {
         
         let currentHome = homes[indexPath.row]
 
-//        cell.categoryLabel.text = currentHome.homeType
-//        cell.cityLabel.text = currentHome.city
         cell.configureCell(home: currentHome)
         
         return cell
     }
     
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "ToSaleHistory", sender: self)
+        
+    }
 }

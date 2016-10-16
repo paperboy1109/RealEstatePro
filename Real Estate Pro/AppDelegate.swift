@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = self.window?.rootViewController as! UITabBarController
         let homeListingsNavController = tabBarController.viewControllers?[0] as! UINavigationController
         let homeListingsVC = homeListingsNavController.topViewController as! HomeListingsVC
-        homeListingsVC.mangedObjectContext = managedObjectContext
+        homeListingsVC.managedObjectContext = managedObjectContext
         
         return true
     }

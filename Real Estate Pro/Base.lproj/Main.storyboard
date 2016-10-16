@@ -53,7 +53,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KEo-QN-xLG" id="9Iq-WK-GRG">
-                                            <frame key="frameInset" width="342" height="65"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pK-Uv-NRY">
@@ -187,6 +187,7 @@
                     <connections>
                         <outlet property="homeListTableView" destination="lqe-kK-JVx" id="aUK-lx-q24"/>
                         <outlet property="segmentedControl" destination="P86-WN-3bK" id="q1K-Mb-jye"/>
+                        <segue destination="fp7-2T-Gnq" kind="show" identifier="ToSaleHistory" id="sPQ-R9-4lH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z7-aP-rqx" sceneMemberID="firstResponder"/>
@@ -407,7 +408,7 @@
         <!--Sale History-->
         <scene sceneID="cVj-vq-U3K">
             <objects>
-                <viewController id="fp7-2T-Gnq" customClass="SaleHistoryViewController" customModule="Real_Estate_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fp7-2T-Gnq" customClass="SaleHistoryVC" customModule="Real_Estate_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xGA-xv-g2L"/>
                         <viewControllerLayoutGuide type="bottom" id="lGI-ox-Tnv"/>
@@ -419,8 +420,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-G6-9AW">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" textLabel="Wv9-bH-52Z" detailTextLabel="kcs-x5-hKh" rowHeight="15" style="IBUITableViewCellStyleValue1" id="09M-ec-y4k" customClass="SaleHistoryTableViewCell" customModule="Real_Estate_Pro" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="15"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaleHistoryCell" textLabel="Wv9-bH-52Z" detailTextLabel="kcs-x5-hKh" rowHeight="15" style="IBUITableViewCellStyleValue1" id="09M-ec-y4k" customClass="SaleHistoryCell" customModule="Real_Estate_Pro" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="335" height="15"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="09M-ec-y4k" id="km6-F5-eVe">
                                             <frame key="frameInset" width="335" height="14"/>
@@ -443,15 +444,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="soldDateLabel" destination="Wv9-bH-52Z" id="zXD-9z-gCv"/>
-                                            <outlet property="soldPriceLabel" destination="kcs-x5-hKh" id="lK5-Wd-IVg"/>
+                                            <outlet property="dateOfSaleLabel" destination="Wv9-bH-52Z" id="SPV-AB-xlA"/>
+                                            <outlet property="priceLabel" destination="kcs-x5-hKh" id="LfT-im-bed"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="fp7-2T-Gnq" id="7gb-U5-YPb"/>
-                                    <outlet property="delegate" destination="fp7-2T-Gnq" id="08A-br-bJF"/>
-                                </connections>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="165000.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zlj-sx-QtN"/>
                         </subviews>
@@ -470,8 +467,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sale History" id="te8-aX-yPp"/>
                     <connections>
-                        <outlet property="imageView" destination="Zlj-sx-QtN" id="6FD-0g-Zlv"/>
-                        <outlet property="tableView" destination="5yk-G6-9AW" id="TC8-Gk-FT4"/>
+                        <outlet property="homeImageView" destination="Zlj-sx-QtN" id="raT-y9-46B"/>
+                        <outlet property="saleHistoryTableView" destination="5yk-G6-9AW" id="cb3-tD-yT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gHG-9m-VKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -545,7 +542,7 @@
                             <tableViewSection headerTitle="FILTER BY HOME TYPE" id="2IK-KD-xCW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" textLabel="rLg-MN-iu6" style="IBUITableViewCellStyleDefault" id="IFp-XE-JUl">
-                                        <rect key="frame" x="0.0" y="244" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="245" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IFp-XE-JUl" id="Iyy-6D-nwB">
                                             <frame key="frameInset" width="375" height="43"/>
@@ -562,7 +559,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" textLabel="Row-AV-8Do" style="IBUITableViewCellStyleDefault" id="M1d-ap-eba">
-                                        <rect key="frame" x="0.0" y="288" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="289" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M1d-ap-eba" id="O5n-YP-50J">
                                             <frame key="frameInset" width="375" height="43"/>
@@ -579,7 +576,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="W9D-sp-4q3">
-                                        <rect key="frame" x="0.0" y="332" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="333" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W9D-sp-4q3" id="n0i-26-kQy">
                                             <frame key="frameInset" width="375" height="43"/>
