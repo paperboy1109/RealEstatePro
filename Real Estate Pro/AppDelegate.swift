@@ -156,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 home.sqft = sqft.int16Value
                 home.isForSale = isForSale!
                 
-                home.image = NSData.init(data: UIImageJPEGRepresentation(homeImage!, 1.0)!)
+                home.image = UIImageJPEGRepresentation(homeImage!, 1.0)
                 
                 /* Condos vs. Single Family homes have different properties: unitsPerBuilding and lotSize, respectively */
                 if let unitsPerBuilding = homeData["unitsPerBuilding"] {

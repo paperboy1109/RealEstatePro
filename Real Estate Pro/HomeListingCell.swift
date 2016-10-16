@@ -43,7 +43,7 @@ class HomeListingCell: UITableViewCell {
         bedValueLabel.text = String(home.bed)
         priceValueLabel.text = home.price.currencyStringFormatter
         
-        let homeImage = UIImage(data: home.image as! Data)
+        let homeImage = UIImage(data: home.image!)
         cellImageView.image = homeImage
     }
 

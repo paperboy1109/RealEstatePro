@@ -81,8 +81,7 @@ class HomeListingsVC: UIViewController {
             selectedHome = homes[selectedIndexPath!.row]
             
             let destinationVC = segue.destination as! SaleHistoryVC
-            
-            
+                        
             destinationVC.home = selectedHome
             destinationVC.managedObjectContext = managedObjectContext
             

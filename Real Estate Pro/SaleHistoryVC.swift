@@ -31,10 +31,16 @@ class SaleHistoryVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         loadHistory()
+        
+        if let homeImage = home!.image {
+            let image = UIImage(data: homeImage)
+            homeImageView.image = image
+        }
+        
+        /* Don't display empty cells in the table */
+        saleHistoryTableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
