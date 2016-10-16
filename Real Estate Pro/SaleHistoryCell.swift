@@ -26,5 +26,13 @@ class SaleHistoryCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configureCell(saleHistory: SaleHistory) {
+        
+        dateOfSaleLabel.text = saleHistory.soldDate?.toString
+        
+        priceLabel.text = saleHistory.soldPrice.currencyStringFormatter
+
+    }
 
 }

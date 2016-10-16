@@ -10,7 +10,7 @@ import Foundation
 
 extension Double {
     
-    /**/
+    /* Easily create a string that expresses a value in terms of dollars */
     var currencyStringFormatter: String {
         
         let numberFormatter = NumberFormatter()

@@ -19,6 +19,8 @@ class SaleHistoryVC: UIViewController {
     
     var cellIdentifier = "SaleHistoryCell"
     
+    lazy var previousSales = [SaleHistory]()
+    
     // MARK: - Outlets
     
     @IBOutlet var homeImageView: UIImageView!
@@ -31,6 +33,8 @@ class SaleHistoryVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        loadHistory()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +42,15 @@ class SaleHistoryVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Private functions
+    
+    private func loadHistory(){
+        
+        let saleHistory = SaleHistory(context: managedObjectContext)
+        previousSales = saleHistory.getHistoryForHome(home: home!, managedObjectContext: managedObjectContext)
+        
+        saleHistoryTableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation
@@ -60,12 +73,16 @@ extension SaleHistoryVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return previousSales.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SaleHistoryCell
+        
+        let history = previousSales[indexPath.row]
+        
+        cell.configureCell(saleHistory: history)
         
         return cell
     }

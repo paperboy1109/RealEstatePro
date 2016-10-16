@@ -449,6 +449,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fp7-2T-Gnq" id="f77-a1-Qlg"/>
+                                    <outlet property="delegate" destination="fp7-2T-Gnq" id="d6u-TJ-bbg"/>
+                                </connections>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="165000.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zlj-sx-QtN"/>
                         </subviews>
