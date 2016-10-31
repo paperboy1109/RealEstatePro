@@ -50,6 +50,7 @@
 		4EB586621DA988E700BC824D /* SingleFamily+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */; };
 		4EC6C91A1DAF491E002707DD /* HomeListingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6C9191DAF491E002707DD /* HomeListingsVC.swift */; };
 		4EC6C91D1DAF4CF5002707DD /* HomeListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6C91C1DAF4CF5002707DD /* HomeListingCell.swift */; };
+		4EDCCD511DC702BD007A2499 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCCD501DC702BD007A2499 /* FilterTableViewController.swift */; };
 		4EF32EC51DB19C3800D3A029 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF32EC41DB19C3800D3A029 /* Double+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		4EB5865A1DA988E700BC824D /* SingleFamily+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SingleFamily+CoreDataProperties.swift"; path = "../SingleFamily+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4EC6C9191DAF491E002707DD /* HomeListingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListingsVC.swift; sourceTree = "<group>"; };
 		4EC6C91C1DAF4CF5002707DD /* HomeListingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListingCell.swift; sourceTree = "<group>"; };
+		4EDCCD501DC702BD007A2499 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		4EF32EC41DB19C3800D3A029 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 			children = (
 				4EC6C9191DAF491E002707DD /* HomeListingsVC.swift */,
 				4E163DE91DB2F58000D3A047 /* SaleHistoryVC.swift */,
+				4EDCCD501DC702BD007A2499 /* FilterTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				4EB5864E1DA9851700BC824D /* CoreDataStack.swift in Sources */,
 				4EB586511DA9864100BC824D /* RealEstate.xcdatamodeld in Sources */,
 				4EB5860C1DA983FF00BC824D /* ViewController.swift in Sources */,
+				4EDCCD511DC702BD007A2499 /* FilterTableViewController.swift in Sources */,
 				4EC6C91D1DAF4CF5002707DD /* HomeListingCell.swift in Sources */,
 				4EB586621DA988E700BC824D /* SingleFamily+CoreDataProperties.swift in Sources */,
 				4EB5865B1DA988E700BC824D /* SaleHistory+CoreDataClass.swift in Sources */,
