@@ -53,7 +53,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KEo-QN-xLG" id="9Iq-WK-GRG">
-                                            <frame key="frameInset" width="342" height="65"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pK-Uv-NRY">
@@ -182,13 +182,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home List" id="e3U-si-lDl">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" id="6WT-PU-E4S"/>
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="6WT-PU-E4S">
+                            <connections>
+                                <segue destination="i6Q-hO-LmP" kind="show" identifier="ToSortAndFilterOptions" id="SOI-xI-963"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="homeListTableView" destination="lqe-kK-JVx" id="aUK-lx-q24"/>
                         <outlet property="segmentedControl" destination="P86-WN-3bK" id="q1K-Mb-jye"/>
                         <segue destination="fp7-2T-Gnq" kind="show" identifier="ToSaleHistory" id="sPQ-R9-4lH"/>
-                        <segue destination="i6Q-hO-LmP" kind="show" identifier="ToFilter" id="eDA-p1-DgP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z7-aP-rqx" sceneMemberID="firstResponder"/>
@@ -422,7 +425,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaleHistoryCell" textLabel="Wv9-bH-52Z" detailTextLabel="kcs-x5-hKh" rowHeight="15" style="IBUITableViewCellStyleValue1" id="09M-ec-y4k" customClass="SaleHistoryCell" customModule="Real_Estate_Pro" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="1000" height="15"/>
+                                        <rect key="frame" x="0.0" y="92" width="335" height="15"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="09M-ec-y4k" id="km6-F5-eVe">
                                             <frame key="frameInset" width="335" height="14"/>

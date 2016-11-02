@@ -12,15 +12,11 @@ import CoreData
 
 public class Home: NSManagedObject {
     
-    func getHomesBySaleStatus(isForSale: Bool, managedObjectContext: NSManagedObjectContext) -> [Home] {
-        
-        let fetchRequest: NSFetchRequest<Home> = Home.fetchRequest()
-        
-        fetchRequest.predicate = NSPredicate(format: "isForSale = %@", isForSale as CVarArg)
+    func getHomesBySaleStatus(request: NSFetchRequest<Home>, managedObjectContext: NSManagedObjectContext) -> [Home] {
         
         do {
             
-            let homesCollection = try managedObjectContext.fetch(fetchRequest)
+            let homesCollection = try managedObjectContext.fetch(request)
             return homesCollection
             
         } catch {

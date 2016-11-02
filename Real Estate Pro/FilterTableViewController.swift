@@ -8,9 +8,20 @@
 
 import UIKit
 
+protocol FilterTableViewControllerDelegate {
+    
+    func updateHomeList(filterBy: NSPredicate?, sortBy: NSSortDescriptor?)
+    
+}
+
 class FilterTableViewController: UITableViewController {
     
     // MARK: - Properties
+    
+    var sortDescriptor: NSSortDescriptor?
+    var searchPredicate: NSPredicate?
+    
+    var delegate: FilterTableViewControllerDelegate!
     
     // MARK: - Outlets
     
@@ -21,6 +32,7 @@ class FilterTableViewController: UITableViewController {
     @IBOutlet var filterByCondoCell: UITableViewCell!
     @IBOutlet var filterBySingleFamilyCell: UITableViewCell!
     
+    // MARK: - Lifecycle
     
 
     override func viewDidLoad() {
@@ -33,6 +45,7 @@ class FilterTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,15 +54,43 @@ class FilterTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return section == 0 ? 3 :2
     }
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedCell = tableView.cellForRow(at: indexPath)!
+        
+        switch selectedCell {
+            
+        case sortByLocationCell:
+            setSortDescriptor(sortBy: "city", isAscending: true)
+            
+        case sortByPriceLowHighCell:
+            setSortDescriptor(sortBy: "price", isAscending: true)
+            
+        case sortByPriceHighLowCell:
+            setSortDescriptor(sortBy: "price", isAscending: false)
+            
+        case filterByCondoCell, filterBySingleFamilyCell:
+            setFilterSearchPredicate(filterBy: selectedCell.textLabel!.text!)
+            
+        default:
+            print("No cell selected")
+        }
+        
+        selectedCell.accessoryType = .checkmark
+        
+        delegate.updateHomeList(filterBy: searchPredicate, sortBy: sortDescriptor)
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -104,5 +145,18 @@ class FilterTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Helpers
+    
+    private func setSortDescriptor(sortBy: String, isAscending: Bool) {
+        
+        sortDescriptor = NSSortDescriptor(key: sortBy, ascending: isAscending)
+        
+    }
+    
+    private func setFilterSearchPredicate(filterBy: String) {
+        
+        searchPredicate = NSPredicate(format: "homeType = %@", filterBy)
+    }
 
 }

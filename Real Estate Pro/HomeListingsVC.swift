@@ -26,6 +26,11 @@ class HomeListingsVC: UIViewController {
     var isForSale: Bool = true
     var selectedHome: Home?
     
+    var sortDescriptor = [NSSortDescriptor]()
+    var searchPredicate: NSPredicate?
+    
+    var fetchRequest: NSFetchRequest<Home>?
+    
     // MARK: - Outlets
     
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -36,9 +41,18 @@ class HomeListingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadData()
+        // loadData()
         
         print("\n\n The number of homes is : \(homes.count))")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchRequest = Home.fetchRequest()
+        
+        loadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +64,36 @@ class HomeListingsVC: UIViewController {
     
     private func loadData() {
         
-        homes = home!.getHomesBySaleStatus(isForSale: isForSale, managedObjectContext: managedObjectContext)
+        /* Load data based on any sorting and filtering options set by the user */
+        
+        var predicates = [NSPredicate]()
+        
+        // Show homes according to the option set on the segmented control
+        
+        let statusPredicate = NSPredicate(format: "isForSale = %@", isForSale as CVarArg)
+        
+        predicates.append(statusPredicate)
+        
+        
+        // Filtering
+        
+        if let additionalPredicate = searchPredicate {
+            predicates.append(additionalPredicate)
+        }
+        
+        let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: predicates)
+        
+        fetchRequest?.predicate = predicate
+        
+        // Sorting
+        
+        if sortDescriptor.count > 0 {
+            fetchRequest?.sortDescriptors = sortDescriptor
+        }
+        
+        // Fetch the data to be displayed
+        
+        homes = home!.getHomesBySaleStatus(request: fetchRequest!, managedObjectContext: managedObjectContext)
         
         homeListTableView.reloadData()
     }
@@ -84,6 +127,15 @@ class HomeListingsVC: UIViewController {
                         
             destinationVC.home = selectedHome
             destinationVC.managedObjectContext = managedObjectContext
+            
+        } else if segue.identifier == "ToSortAndFilterOptions" {
+            
+            /* Remove previous filters */
+            sortDescriptor = []
+            searchPredicate = nil
+            
+            let controller = segue.destination as! FilterTableViewController
+            controller.delegate = self
             
         }
 
@@ -120,4 +172,21 @@ extension HomeListingsVC: UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "ToSaleHistory", sender: self)
         
     }
+}
+
+// MARK: - FilterTableViewControllerDelegate protocol implementation
+
+extension HomeListingsVC: FilterTableViewControllerDelegate {
+    
+    func updateHomeList(filterBy: NSPredicate?, sortBy: NSSortDescriptor?) {
+        
+        if let filter = filterBy {
+            searchPredicate = filter
+        }
+        
+        if let sort = sortBy {
+            sortDescriptor.append(sort)
+        }
+    }
+    
 }
