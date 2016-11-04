@@ -17,7 +17,7 @@ public class Home: NSManagedObject {
     var soldPredicate: NSPredicate = NSPredicate(format: "isForSale = false")
     let request: NSFetchRequest<Home> = Home.fetchRequest()
     
-    func getHomesBySaleStatus(request: NSFetchRequest<Home>, managedObjectContext: NSManagedObjectContext) -> [Home] {
+    internal func getHomesBySaleStatus(request: NSFetchRequest<Home>, managedObjectContext: NSManagedObjectContext) -> [Home] {
         
         do {
             
@@ -101,6 +101,65 @@ public class Home: NSManagedObject {
             
         } catch {
             fatalError("Failed to count the number of single family homes sold")
+        }
+        
+    }
+    
+    internal func getHomePriceSold(maxOrMin: String, managedObjectContext: NSManagedObjectContext) -> String {
+        
+        request.predicate = soldPredicate
+        request.resultType = .dictionaryResultType
+        
+        let sumExpressionDescription = NSExpressionDescription()
+        sumExpressionDescription.name = maxOrMin
+        sumExpressionDescription.expression = NSExpression(forFunction: "\(maxOrMin):", arguments: [NSExpression(forKeyPath: "price")])
+        sumExpressionDescription.expressionResultType = .doubleAttributeType
+        
+        request.propertiesToFetch = [sumExpressionDescription]
+        
+        do {
+            
+            let results = try managedObjectContext.fetch(request as! NSFetchRequest<NSFetchRequestResult>) as! [NSDictionary]
+            
+            let resultsDictionary = results.first!
+            
+            let maxOrMinPrice = resultsDictionary[maxOrMin] as! Double
+            
+            return maxOrMinPrice.currencyStringFormatter
+            
+        } catch {
+            fatalError("Failed to get \(maxOrMin) for home sales")
+        }
+    }
+    
+    internal func getAverageHomePrice(homeType: String, managedObjectContext: NSManagedObjectContext) -> String {
+        
+        let homeTypePredicate = NSPredicate(format: "homeType = %@", homeType)
+        
+        let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [soldPredicate, homeTypePredicate])
+        
+        request.predicate = predicate
+        request.resultType = .dictionaryResultType
+        
+        let sumExpressionDescription = NSExpressionDescription()
+        sumExpressionDescription.name = homeType
+        sumExpressionDescription.expression = NSExpression(forFunction: "average:", arguments: [NSExpression(forKeyPath: "price")])
+        sumExpressionDescription.expressionResultType = .doubleAttributeType
+        
+        request.propertiesToFetch = [sumExpressionDescription]
+        
+        do {
+            
+            let results = try managedObjectContext.fetch(request as! NSFetchRequest<NSFetchRequestResult>) as! [NSDictionary]
+            
+            let resultsDictionary = results.first!
+            
+            let avePrice = resultsDictionary[homeType] as! Double
+            
+            return avePrice.currencyStringFormatter
+            
+        } catch {
+            fatalError("Failed to get the average for \(homeType) sales")
         }
         
     }
