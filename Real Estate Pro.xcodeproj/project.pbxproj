@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E14FD781DCC356D0031FFAB /* SummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E14FD771DCC356D0031FFAB /* SummaryTableVC.swift */; };
 		4E163DEA1DB2F58000D3A047 /* SaleHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E163DE91DB2F58000D3A047 /* SaleHistoryVC.swift */; };
 		4E163DEC1DB3047E00D3A047 /* SaleHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E163DEB1DB3047E00D3A047 /* SaleHistoryCell.swift */; };
 		4E163DEE1DB30BFE00D3A047 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E163DED1DB30BFE00D3A047 /* Date+Extension.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E14FD771DCC356D0031FFAB /* SummaryTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableVC.swift; sourceTree = "<group>"; };
 		4E163DE91DB2F58000D3A047 /* SaleHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleHistoryVC.swift; sourceTree = "<group>"; };
 		4E163DEB1DB3047E00D3A047 /* SaleHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleHistoryCell.swift; sourceTree = "<group>"; };
 		4E163DED1DB30BFE00D3A047 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				4EC6C9191DAF491E002707DD /* HomeListingsVC.swift */,
 				4E163DE91DB2F58000D3A047 /* SaleHistoryVC.swift */,
 				4EDCCD501DC702BD007A2499 /* FilterTableViewController.swift */,
+				4E14FD771DCC356D0031FFAB /* SummaryTableVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			files = (
 				4EB5864E1DA9851700BC824D /* CoreDataStack.swift in Sources */,
 				4EB586511DA9864100BC824D /* RealEstate.xcdatamodeld in Sources */,
+				4E14FD781DCC356D0031FFAB /* SummaryTableVC.swift in Sources */,
 				4EB5860C1DA983FF00BC824D /* ViewController.swift in Sources */,
 				4EDCCD511DC702BD007A2499 /* FilterTableViewController.swift in Sources */,
 				4EC6C91D1DAF4CF5002707DD /* HomeListingCell.swift in Sources */,
