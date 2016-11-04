@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
 class SummaryTableVC: UITableViewController {
+    
+    // MARK: - Properties
+    
+    var home: Home? = nil
+    
+    weak var managedObjectContext: NSManagedObjectContext! {
+        didSet {
+            return home = Home(context: managedObjectContext)
+        }
+    }
+    
     
     // MARK: - Outlets
     
@@ -27,12 +39,17 @@ class SummaryTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        totalSalesLabel.text = home?.getTotalHomeSales(managedObjectContext: managedObjectContext)
+        numberOfCondosSoldLabel.text = home?.getNumberOfCondosSold(managedObjectContext: managedObjectContext)
+        numberOfSFSoldLabel.text = home?.getNumberOfSingleFamilyHomesSold(managedObjectContext:managedObjectContext)
+        
+        minHomePriceLabel.text = home?.getHomePriceSold(maxOrMin: "min", managedObjectContext: managedObjectContext)
+        maxHomePriceLabel.text = home?.getHomePriceSold(maxOrMin: "max", managedObjectContext: managedObjectContext)
+        
+        avgCondoPriceLabel.text = home?.getAverageHomePrice(homeType: HomeType.Condo.rawValue, managedObjectContext: managedObjectContext)
+        avgSFPriceLabel.text = home?.getAverageHomePrice(homeType: HomeType.SingleFamily.rawValue, managedObjectContext: managedObjectContext)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,13 +60,24 @@ class SummaryTableVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        var numberOfRows = 0
+        
+        switch section {
+        case 0:
+            numberOfRows = 3
+        case 1, 2:
+            numberOfRows = 2
+        default:
+            numberOfRows = 0
+        }
+        
+        return numberOfRows
     }
 
     /*

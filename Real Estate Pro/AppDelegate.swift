@@ -25,10 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let managedObjectContext = coreDataStack.persistentContainer.viewContext
         
+        /* Set the managed object context for HomeListingsVC*/
         let tabBarController = self.window?.rootViewController as! UITabBarController
         let homeListingsNavController = tabBarController.viewControllers?[0] as! UINavigationController
         let homeListingsVC = homeListingsNavController.topViewController as! HomeListingsVC
         homeListingsVC.managedObjectContext = managedObjectContext
+        
+        /* Set the managed object context for SummaryTabeVC*/
+        let homeSummaryNavController = tabBarController.viewControllers?[1] as! UINavigationController
+        let summaryTableVC = homeSummaryNavController.topViewController as! SummaryTableVC
+        summaryTableVC.managedObjectContext = managedObjectContext
         
         return true
     }

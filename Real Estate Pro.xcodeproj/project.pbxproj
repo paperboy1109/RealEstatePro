@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E14FD781DCC356D0031FFAB /* SummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E14FD771DCC356D0031FFAB /* SummaryTableVC.swift */; };
+		4E14FD7A1DCC46790031FFAB /* HomeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E14FD791DCC46790031FFAB /* HomeType.swift */; };
 		4E163DEA1DB2F58000D3A047 /* SaleHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E163DE91DB2F58000D3A047 /* SaleHistoryVC.swift */; };
 		4E163DEC1DB3047E00D3A047 /* SaleHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E163DEB1DB3047E00D3A047 /* SaleHistoryCell.swift */; };
 		4E163DEE1DB30BFE00D3A047 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E163DED1DB30BFE00D3A047 /* Date+Extension.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		4E14FD771DCC356D0031FFAB /* SummaryTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableVC.swift; sourceTree = "<group>"; };
+		4E14FD791DCC46790031FFAB /* HomeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeType.swift; sourceTree = "<group>"; };
 		4E163DE91DB2F58000D3A047 /* SaleHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleHistoryVC.swift; sourceTree = "<group>"; };
 		4E163DEB1DB3047E00D3A047 /* SaleHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleHistoryCell.swift; sourceTree = "<group>"; };
 		4E163DED1DB30BFE00D3A047 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				4EB5864D1DA9851700BC824D /* CoreDataStack.swift */,
 				4EB586521DA988C800BC824D /* Entities */,
 				4EB5864F1DA9864100BC824D /* RealEstate.xcdatamodeld */,
+				4E14FD791DCC46790031FFAB /* HomeType.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				4EB586511DA9864100BC824D /* RealEstate.xcdatamodeld in Sources */,
 				4E14FD781DCC356D0031FFAB /* SummaryTableVC.swift in Sources */,
 				4EB5860C1DA983FF00BC824D /* ViewController.swift in Sources */,
+				4E14FD7A1DCC46790031FFAB /* HomeType.swift in Sources */,
 				4EDCCD511DC702BD007A2499 /* FilterTableViewController.swift in Sources */,
 				4EC6C91D1DAF4CF5002707DD /* HomeListingCell.swift in Sources */,
 				4EB586621DA988E700BC824D /* SingleFamily+CoreDataProperties.swift in Sources */,
