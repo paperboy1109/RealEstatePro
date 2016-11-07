@@ -21,6 +21,7 @@ class HomeListingsVC: UIViewController {
             return home = Home(context: managedObjectContext)
         }
     }
+    
     lazy var homes = [Home]()
     var home: Home? = nil
     var isForSale: Bool = true
@@ -93,9 +94,14 @@ class HomeListingsVC: UIViewController {
         
         // Fetch the data to be displayed
         
-        homes = home!.getHomesBySaleStatus(request: fetchRequest!, managedObjectContext: managedObjectContext)
-        
-        homeListTableView.reloadData()
+        //homes = home!.getHomesBySaleStatus(request: fetchRequest!, managedObjectContext: managedObjectContext)
+        home?.getHomesBySaleStatus(request: fetchRequest!, managedObjectContext: managedObjectContext, completionHandler: { [weak self] (homesByStatus) in
+            
+            self?.homes = homesByStatus
+            
+            self?.homeListTableView.reloadData()
+            
+        })                
     }
     
     // MARK: - Actions

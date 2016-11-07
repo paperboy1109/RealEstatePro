@@ -12,17 +12,29 @@ import CoreData
 
 public class Home: NSManagedObject {
     
+    typealias HomeByStatusHandler = (_ homes: [Home]) -> Void
+    
     // MARK: - Properties
     
     var soldPredicate: NSPredicate = NSPredicate(format: "isForSale = false")
     let request: NSFetchRequest<Home> = Home.fetchRequest()
     
-    internal func getHomesBySaleStatus(request: NSFetchRequest<Home>, managedObjectContext: NSManagedObjectContext) -> [Home] {
+    internal func getHomesBySaleStatus(request: NSFetchRequest<Home>, managedObjectContext: NSManagedObjectContext, completionHandler: @escaping HomeByStatusHandler) {
+        
+        let asynchronousRequest = NSAsynchronousFetchRequest(fetchRequest: request) { (results: NSAsynchronousFetchResult<Home>) in
+            
+            let homes = results.finalResult!
+            
+            completionHandler(homes)
+            
+        }
         
         do {
             
-            let homesCollection = try managedObjectContext.fetch(request)
-            return homesCollection
+//            let homesCollection = try managedObjectContext.fetch(request)
+//            return homesCollection
+
+            try managedObjectContext.execute(asynchronousRequest)
             
         } catch {
             fatalError("Failed to fetch the list of homes")
